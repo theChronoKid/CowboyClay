@@ -17,13 +17,13 @@ if in_use {
 	else if timer < 10 image_index = 1;
 	else image_index = 2;
 	
-	if place_meeting(x,y,obj_player) {
+	if place_meeting(x,y,obj_player_fighting) {
 		var dir = direct;
-		with (obj_player) {
-			var stucko = dir == Direction.RIGHT ? collision_check_edge(x,y,spr_player_collision, Direction.RIGHT, collision_mask) : collision_check_edge(x,y,spr_player_collision, Direction.LEFT, collision_mask);
+		with (obj_player_fighting) {
+			var stucko = dir == Direction.RIGHT ? collision_check_edge(x,y,spr_clay_n_collision, Direction.RIGHT, collision_mask) : collision_check_edge(x,y,spr_clay_n_collision, Direction.LEFT, collision_mask);
 			while !stucko && place_meeting(x,y,obj_shockwave) {
 				x += dir == Direction.RIGHT ? 1 : -1;
-				stucko = dir == Direction.RIGHT ? collision_check_edge(x,y,spr_player_collision, Direction.RIGHT, collision_mask) : collision_check_edge(x,y,spr_player_collision, Direction.LEFT, collision_mask);
+				stucko = dir == Direction.RIGHT ? collision_check_edge(x,y,spr_clay_n_collision, Direction.RIGHT, collision_mask) : collision_check_edge(x,y,spr_clay_n_collision, Direction.LEFT, collision_mask);
 			}
 		}
 	}
